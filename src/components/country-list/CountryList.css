@@ -1,0 +1,17 @@
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
+
+.title {
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0px;
+}
+
+.list {
+  border: 1px solid #E1E5EC;
+  border-radius: 0.25rem;
+}

@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import CountryList from './components/country-list/CountryList';
+import sample from './data/guest-country-sample.json'
+import BookingsCountryData from './interfaces/BookingsCountryData';
 
 function App() {
+  const [data, setData] = useState<BookingsCountryData[]>([]);
+  const [loaded, setLoaded] = useState<boolean>();
+
+
+  useEffect(() => {
+    fetch('https://data.otainsight.com/public-data/frontend-hiring/guest-country-sample.json')
+    .then(res => {
+      res.json()
+    })
+    .then( (json: any) => {
+      setData(json.guest_country)
+    })
+    .catch(e => {
+      setData(sample.guest_country)
+    })
+    .finally(() => {
+      setLoaded(true);
+    })
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    loaded ? <CountryList title='Guest Country' data={data}/> : <div></div>
   );
 }
 

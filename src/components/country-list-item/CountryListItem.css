@@ -1,0 +1,45 @@
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  color: #60778b;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-align: left;
+}
+
+.border-top{
+  border-top: 1px solid #E1E5EC;
+}
+
+.label-text {
+    line-height: 12px;
+    font-size: 10px;
+    top: 0.1em;
+    position: relative;
+}
+
+meter {
+    height: 1rem;
+}
+
+meter::-webkit-meter-optimum-value {
+  background: #035086;
+}
+
+meter::-webkit-meter-bar {
+  background: #e1e5ec;
+  border: none;
+}
+
+#left {
+  flex-basis: 82.5%;
+}
+
+#right {
+  padding-left: 1em;
+  flex-basis: 17.5%;
+}
